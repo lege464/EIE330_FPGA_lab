@@ -1,0 +1,9 @@
+Time,tb_full_adder.A,tb_full_adder.B,tb_full_adder.Cin,tb_full_adder.Cout,tb_full_adder.S,tb_full_adder.s,tb_full_adder.cout,tb_full_adder.a,tb_full_adder.b,tb_full_adder.cin,tb_full_adder.dut.A,tb_full_adder.dut.B,tb_full_adder.dut.Cin,tb_full_adder.dut.a,tb_full_adder.dut.b,tb_full_adder.dut.cin,tb_full_adder.dut.cout,tb_full_adder.dut.s,tb_full_adder.dut.sum,tb_full_adder.dut.Cout
+0,0,0,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0
+10,0,0,1,0,1,0,1,1,1,0,0,0,1,1,1,0,1,0,1,0
+20,0,1,0,0,1,0,1,1,0,1,0,1,0,1,0,1,1,0,1,0
+30,0,1,1,1,0,1,0,1,0,0,0,1,1,1,0,0,0,1,0,1
+40,1,0,0,0,1,0,1,0,1,1,1,0,0,0,1,1,1,0,1,0
+50,1,0,1,1,0,1,0,0,1,0,1,0,1,0,1,0,0,1,0,1
+60,1,1,0,1,0,1,0,0,0,1,1,1,0,0,0,1,0,1,0,1
+70,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1
