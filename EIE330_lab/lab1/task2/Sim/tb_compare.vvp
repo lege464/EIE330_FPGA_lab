@@ -8,63 +8,64 @@
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
-S_0x55cdc6373e30 .scope package, "$unit" "$unit" 2 1;
+S_0x56d8de99de30 .scope package, "$unit" "$unit" 2 1;
  .timescale 0 0;
-S_0x55cdc6373fc0 .scope module, "tb_compare" "tb_compare" 3 3;
+S_0x56d8de99dfc0 .scope module, "tb_compare" "tb_compare" 3 3;
  .timescale -9 -12;
-v0x55cdc6388a60_0 .var "A1", 0 0;
-v0x55cdc6388b20_0 .var "B1", 0 0;
-v0x55cdc6388bc0_0 .net "led1", 0 0, L_0x55cdc6389260;  1 drivers
-v0x55cdc6388c60_0 .net "led2", 0 0, L_0x55cdc6389300;  1 drivers
-v0x55cdc6388d30_0 .net "led3", 0 0, L_0x55cdc6389410;  1 drivers
-S_0x55cdc6374150 .scope module, "dut" "compare" 3 13, 4 3 0, S_0x55cdc6373fc0;
+v0x56d8de9b2ba0_0 .var "a", 0 0;
+v0x56d8de9b2c60_0 .var "b", 0 0;
+v0x56d8de9b2d00_0 .net "led1", 0 0, L_0x56d8de9b33a0;  1 drivers
+v0x56d8de9b2da0_0 .net "led2", 0 0, L_0x56d8de9b3440;  1 drivers
+v0x56d8de9b2e70_0 .net "led3", 0 0, L_0x56d8de9b3550;  1 drivers
+S_0x56d8de99e150 .scope module, "dut" "compare" 3 13, 4 3 0, S_0x56d8de99dfc0;
  .timescale -9 -9;
     .port_info 0 /INPUT 1 "a";
     .port_info 1 /INPUT 1 "b";
     .port_info 2 /OUTPUT 1 "led1";
     .port_info 3 /OUTPUT 1 "led2";
     .port_info 4 /OUTPUT 1 "led3";
-L_0x55cdc6388dd0 .functor NOT 1, v0x55cdc6388a60_0, C4<0>, C4<0>, C4<0>;
-L_0x55cdc6388ec0 .functor NOT 1, v0x55cdc6388b20_0, C4<0>, C4<0>, C4<0>;
-L_0x55cdc63890c0 .functor XNOR 1, L_0x55cdc6388dd0, L_0x55cdc6388ec0, C4<0>, C4<0>;
-L_0x55cdc6389260 .functor NOT 1, L_0x55cdc6388f80, C4<0>, C4<0>, C4<0>;
-L_0x55cdc6389300 .functor NOT 1, L_0x55cdc63890c0, C4<0>, C4<0>, C4<0>;
-L_0x55cdc6389410 .functor NOT 1, L_0x55cdc6389130, C4<0>, C4<0>, C4<0>;
-v0x55cdc63607d0_0 .net "A", 0 0, L_0x55cdc6388dd0;  1 drivers
-v0x55cdc63882d0_0 .net "B", 0 0, L_0x55cdc6388ec0;  1 drivers
-v0x55cdc6388390_0 .net "Led1", 0 0, L_0x55cdc6388f80;  1 drivers
-v0x55cdc6388430_0 .net "Led2", 0 0, L_0x55cdc63890c0;  1 drivers
-v0x55cdc63884f0_0 .net "Led3", 0 0, L_0x55cdc6389130;  1 drivers
-v0x55cdc6388600_0 .net "a", 0 0, v0x55cdc6388a60_0;  1 drivers
-v0x55cdc63886c0_0 .net "b", 0 0, v0x55cdc6388b20_0;  1 drivers
-v0x55cdc6388780_0 .net "led1", 0 0, L_0x55cdc6389260;  alias, 1 drivers
-v0x55cdc6388840_0 .net "led2", 0 0, L_0x55cdc6389300;  alias, 1 drivers
-v0x55cdc6388900_0 .net "led3", 0 0, L_0x55cdc6389410;  alias, 1 drivers
-L_0x55cdc6388f80 .cmp/gt 1, L_0x55cdc6388ec0, L_0x55cdc6388dd0;
-L_0x55cdc6389130 .cmp/gt 1, L_0x55cdc6388dd0, L_0x55cdc6388ec0;
-    .scope S_0x55cdc6373fc0;
+L_0x56d8de9b2f10 .functor NOT 1, v0x56d8de9b2ba0_0, C4<0>, C4<0>, C4<0>;
+L_0x56d8de9b3000 .functor NOT 1, v0x56d8de9b2c60_0, C4<0>, C4<0>, C4<0>;
+L_0x56d8de9b3200 .functor XNOR 1, L_0x56d8de9b2f10, L_0x56d8de9b3000, C4<0>, C4<0>;
+L_0x56d8de9b33a0 .functor NOT 1, L_0x56d8de9b30c0, C4<0>, C4<0>, C4<0>;
+L_0x56d8de9b3440 .functor NOT 1, L_0x56d8de9b3200, C4<0>, C4<0>, C4<0>;
+L_0x56d8de9b3550 .functor NOT 1, L_0x56d8de9b3270, C4<0>, C4<0>, C4<0>;
+v0x56d8de98a7d0_0 .net "A", 0 0, L_0x56d8de9b2f10;  1 drivers
+v0x56d8de9b2410_0 .net "B", 0 0, L_0x56d8de9b3000;  1 drivers
+v0x56d8de9b24d0_0 .net "Led1", 0 0, L_0x56d8de9b30c0;  1 drivers
+v0x56d8de9b2570_0 .net "Led2", 0 0, L_0x56d8de9b3200;  1 drivers
+v0x56d8de9b2630_0 .net "Led3", 0 0, L_0x56d8de9b3270;  1 drivers
+v0x56d8de9b2740_0 .net "a", 0 0, v0x56d8de9b2ba0_0;  1 drivers
+v0x56d8de9b2800_0 .net "b", 0 0, v0x56d8de9b2c60_0;  1 drivers
+v0x56d8de9b28c0_0 .net "led1", 0 0, L_0x56d8de9b33a0;  alias, 1 drivers
+v0x56d8de9b2980_0 .net "led2", 0 0, L_0x56d8de9b3440;  alias, 1 drivers
+v0x56d8de9b2a40_0 .net "led3", 0 0, L_0x56d8de9b3550;  alias, 1 drivers
+L_0x56d8de9b30c0 .cmp/gt 1, L_0x56d8de9b3000, L_0x56d8de9b2f10;
+L_0x56d8de9b3270 .cmp/gt 1, L_0x56d8de9b2f10, L_0x56d8de9b3000;
+    .scope S_0x56d8de99dfc0;
 T_0 ;
     %vpi_call/w 3 23 "$dumpfile", "compare.vcd" {0 0 0};
-    %vpi_call/w 3 24 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55cdc6373fc0 {0 0 0};
+    %vpi_call/w 3 24 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x56d8de99dfc0 {0 0 0};
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x55cdc6388a60_0, 0, 1;
+    %store/vec4 v0x56d8de9b2ba0_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x55cdc6388b20_0, 0, 1;
+    %store/vec4 v0x56d8de9b2c60_0, 0, 1;
     %delay 10000, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x55cdc6388a60_0, 0, 1;
+    %store/vec4 v0x56d8de9b2ba0_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x55cdc6388b20_0, 0, 1;
+    %store/vec4 v0x56d8de9b2c60_0, 0, 1;
     %delay 10000, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x55cdc6388a60_0, 0, 1;
+    %store/vec4 v0x56d8de9b2ba0_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x55cdc6388b20_0, 0, 1;
+    %store/vec4 v0x56d8de9b2c60_0, 0, 1;
     %delay 10000, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x55cdc6388a60_0, 0, 1;
+    %store/vec4 v0x56d8de9b2ba0_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x55cdc6388b20_0, 0, 1;
+    %store/vec4 v0x56d8de9b2c60_0, 0, 1;
+    %delay 10000, 0;
     %delay 10000, 0;
     %vpi_call/w 3 46 "$finish" {0 0 0};
     %end;

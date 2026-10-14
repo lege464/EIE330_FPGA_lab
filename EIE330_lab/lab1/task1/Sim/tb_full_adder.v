@@ -9,11 +9,6 @@ wire s;
 wire cout;
 
 
-wire A= ~a;
-wire B= ~b;
-wire Cin= ~cin;
-wire S= ~s;       
-wire Cout= ~cout; 
 
 
 full_adder dut (

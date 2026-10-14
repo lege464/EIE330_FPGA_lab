@@ -42,7 +42,7 @@ module tb_compare();
         
 
         
-      
+        #10;
         $finish;
     end
 

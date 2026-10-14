@@ -1,0 +1,5 @@
+Time,tb_compare.led3,tb_compare.led2,tb_compare.led1,tb_compare.a,tb_compare.b,tb_compare.dut.A,tb_compare.dut.B,tb_compare.dut.Led2,tb_compare.dut.a,tb_compare.dut.b,tb_compare.dut.led1,tb_compare.dut.led2,tb_compare.dut.led3,tb_compare.dut.Led3,tb_compare.dut.Led1
+0,1,0,1,0,0,1,1,1,0,0,1,0,1,0,0
+10000,0,1,1,0,1,1,0,0,0,1,1,1,0,1,0
+20000,1,1,0,1,0,0,1,0,1,0,0,1,1,0,1
+30000,1,0,1,1,1,0,0,1,1,1,1,0,1,0,0
