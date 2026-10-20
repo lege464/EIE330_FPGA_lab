@@ -1,0 +1,110 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55fe850c2f60 .scope module, "running_light" "running_light" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "sys_clk";
+    .port_info 1 /INPUT 1 "sys_rst_n";
+    .port_info 2 /OUTPUT 1 "led0";
+    .port_info 3 /OUTPUT 1 "led1";
+    .port_info 4 /OUTPUT 1 "led2";
+    .port_info 5 /OUTPUT 1 "led3";
+P_0x55fe850c30f0 .param/l "HALF_SEC" 1 2 12, C4<1011111010111100000111111>;
+L_0x55fe850bdf60 .functor NOT 1, L_0x55fe850e8320, C4<0>, C4<0>, C4<0>;
+L_0x55fe850e84b0 .functor NOT 1, L_0x55fe850e83c0, C4<0>, C4<0>, C4<0>;
+L_0x55fe850e8610 .functor NOT 1, L_0x55fe850e8570, C4<0>, C4<0>, C4<0>;
+L_0x55fe850e87d0 .functor NOT 1, L_0x55fe850e8700, C4<0>, C4<0>, C4<0>;
+v0x55fe850c1e00_0 .net *"_ivl_1", 0 0, L_0x55fe850e8320;  1 drivers
+v0x55fe850e7950_0 .net *"_ivl_13", 0 0, L_0x55fe850e8700;  1 drivers
+v0x55fe850e7a30_0 .net *"_ivl_5", 0 0, L_0x55fe850e83c0;  1 drivers
+v0x55fe850e7af0_0 .net *"_ivl_9", 0 0, L_0x55fe850e8570;  1 drivers
+v0x55fe850e7bd0_0 .var "cnt", 24 0;
+v0x55fe850e7d00_0 .net "led0", 0 0, L_0x55fe850bdf60;  1 drivers
+v0x55fe850e7dc0_0 .net "led1", 0 0, L_0x55fe850e84b0;  1 drivers
+v0x55fe850e7e80_0 .net "led2", 0 0, L_0x55fe850e8610;  1 drivers
+v0x55fe850e7f40_0 .net "led3", 0 0, L_0x55fe850e87d0;  1 drivers
+v0x55fe850e8000_0 .var "led_on", 3 0;
+o0x7d0fe84e81f8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x55fe850e80e0_0 .net "sys_clk", 0 0, o0x7d0fe84e81f8;  0 drivers
+o0x7d0fe84e8228 .functor BUFZ 1, C4<z>; HiZ drive
+v0x55fe850e81a0_0 .net "sys_rst_n", 0 0, o0x7d0fe84e8228;  0 drivers
+E_0x55fe850d2f20/0 .event negedge, v0x55fe850e81a0_0;
+E_0x55fe850d2f20/1 .event posedge, v0x55fe850e80e0_0;
+E_0x55fe850d2f20 .event/or E_0x55fe850d2f20/0, E_0x55fe850d2f20/1;
+L_0x55fe850e8320 .part v0x55fe850e8000_0, 0, 1;
+L_0x55fe850e83c0 .part v0x55fe850e8000_0, 1, 1;
+L_0x55fe850e8570 .part v0x55fe850e8000_0, 2, 1;
+L_0x55fe850e8700 .part v0x55fe850e8000_0, 3, 1;
+    .scope S_0x55fe850c2f60;
+T_0 ;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x55fe850e8000_0, 0, 4;
+    %end;
+    .thread T_0;
+    .scope S_0x55fe850c2f60;
+T_1 ;
+    %wait E_0x55fe850d2f20;
+    %load/vec4 v0x55fe850e81a0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 0, 0, 25;
+    %assign/vec4 v0x55fe850e7bd0_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0x55fe850e7bd0_0;
+    %cmpi/e 24999999, 0, 25;
+    %jmp/0xz  T_1.2, 4;
+    %pushi/vec4 0, 0, 25;
+    %assign/vec4 v0x55fe850e7bd0_0, 0;
+    %jmp T_1.3;
+T_1.2 ;
+    %load/vec4 v0x55fe850e7bd0_0;
+    %addi 1, 0, 25;
+    %assign/vec4 v0x55fe850e7bd0_0, 0;
+T_1.3 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x55fe850c2f60;
+T_2 ;
+    %wait E_0x55fe850d2f20;
+    %load/vec4 v0x55fe850e81a0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.0, 8;
+    %pushi/vec4 1, 0, 4;
+    %assign/vec4 v0x55fe850e8000_0, 0;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/vec4 v0x55fe850e7bd0_0;
+    %cmpi/e 24999999, 0, 25;
+    %jmp/0xz  T_2.2, 4;
+    %load/vec4 v0x55fe850e8000_0;
+    %cmpi/e 8, 0, 4;
+    %jmp/0xz  T_2.4, 4;
+    %pushi/vec4 1, 0, 4;
+    %assign/vec4 v0x55fe850e8000_0, 0;
+    %jmp T_2.5;
+T_2.4 ;
+    %load/vec4 v0x55fe850e8000_0;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %shiftl 4;
+    %assign/vec4 v0x55fe850e8000_0, 0;
+T_2.5 ;
+T_2.2 ;
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "running_light.v";
