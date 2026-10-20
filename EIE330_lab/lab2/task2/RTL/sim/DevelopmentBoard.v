@@ -19,11 +19,11 @@ module DevelopmentBoard(
 
 running_light running_light_inst(
     .sys_clk(clk),
-    .sys_rst_n(B2),
-    .led3(led1),
-    .led2(led2),
-    .led1(led3),
-    .led0(led4)
+    .sys_rst_n(B3),
+    .led0(led1),
+    .led1(led2),
+    .led2(led3),
+    .led3(led4)
 );
 
 endmodule

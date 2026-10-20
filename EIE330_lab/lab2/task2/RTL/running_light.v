@@ -1,4 +1,4 @@
-`timescale 1ns/1ps
+`timescale 1ns/1ns
 module running_light(
     input wire sys_clk,
     input wire sys_rst_n,
@@ -8,9 +8,8 @@ module running_light(
     output wire led3
 );
 
-    reg [24:0] cnt=25'd0;
+    reg [24:0] cnt;
     localparam HALF_SEC=25'd24999999;
-
     always @(posedge sys_clk or negedge sys_rst_n) begin
         if(!sys_rst_n)
             cnt<=25'd0;
@@ -21,7 +20,6 @@ module running_light(
     end
 
     reg [3:0] led_on=4'b0001;
-    
     always @(posedge sys_clk or negedge sys_rst_n) begin
         if(!sys_rst_n)
             led_on<=4'b0001;

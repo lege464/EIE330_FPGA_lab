@@ -23,9 +23,9 @@ VL_MODULE(VDevelopmentBoard) {
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
     VL_IN8(clk,0,0);
-    VL_IN8(B2,0,0);
-    VL_IN8(reset,0,0);
     VL_IN8(B3,0,0);
+    VL_IN8(reset,0,0);
+    VL_IN8(B2,0,0);
     VL_IN8(B4,0,0);
     VL_IN8(B5,0,0);
     VL_OUT8(h_sync,0,0);
@@ -44,7 +44,7 @@ VL_MODULE(VDevelopmentBoard) {
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
-    CData/*0:0*/ __Vclklast__TOP__B2;
+    CData/*0:0*/ __Vclklast__TOP__B3;
     CData/*0:0*/ __Vclklast__TOP__clk;
     
     // INTERNAL VARIABLES

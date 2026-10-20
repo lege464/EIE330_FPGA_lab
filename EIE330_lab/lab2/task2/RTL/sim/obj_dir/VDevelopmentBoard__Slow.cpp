@@ -21,7 +21,7 @@ void VDevelopmentBoard::__Vconfigure(VDevelopmentBoard__Syms* vlSymsp, bool firs
     this->__VlSymsp = vlSymsp;
     if (false && this->__VlSymsp) {}  // Prevent unused
     Verilated::timeunit(-9);
-    Verilated::timeprecision(-12);
+    Verilated::timeprecision(-9);
 }
 
 VDevelopmentBoard::~VDevelopmentBoard() {
@@ -39,12 +39,12 @@ void VDevelopmentBoard::_settle__TOP__3(VDevelopmentBoard__Syms* __restrict vlSy
     VL_DEBUG_IF(VL_DBG_MSGF("+    VDevelopmentBoard::_settle__TOP__3\n"); );
     VDevelopmentBoard* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->led4 = (1U & (~ (IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on)));
-    vlTOPp->led3 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
-                             >> 1U)));
+    vlTOPp->led1 = (1U & (~ (IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on)));
     vlTOPp->led2 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
+                             >> 1U)));
+    vlTOPp->led3 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
                              >> 2U)));
-    vlTOPp->led1 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
+    vlTOPp->led4 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
                              >> 3U)));
 }
 
@@ -52,7 +52,7 @@ void VDevelopmentBoard::_eval_initial(VDevelopmentBoard__Syms* __restrict vlSyms
     VL_DEBUG_IF(VL_DBG_MSGF("+    VDevelopmentBoard::_eval_initial\n"); );
     VDevelopmentBoard* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->__Vclklast__TOP__B2 = vlTOPp->B2;
+    vlTOPp->__Vclklast__TOP__B3 = vlTOPp->B3;
     vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
     vlTOPp->_initial__TOP__2(vlSymsp);
 }

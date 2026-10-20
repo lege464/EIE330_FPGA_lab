@@ -73,12 +73,12 @@ VL_INLINE_OPT void VDevelopmentBoard::_sequent__TOP__1(VDevelopmentBoard__Syms* 
     __Vdly__DevelopmentBoard__DOT__running_light_inst__DOT__cnt 
         = vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__cnt;
     __Vdly__DevelopmentBoard__DOT__running_light_inst__DOT__cnt 
-        = ((IData)(vlTOPp->B2) ? ((0x17d783fU == vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__cnt)
+        = ((IData)(vlTOPp->B3) ? ((0x17d783fU == vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__cnt)
                                    ? 0U : (0x1ffffffU 
                                            & ((IData)(1U) 
                                               + vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__cnt)))
             : 0U);
-    if (vlTOPp->B2) {
+    if (vlTOPp->B3) {
         if ((0x17d783fU == vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__cnt)) {
             vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on 
                 = ((8U == (IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on))
@@ -90,12 +90,12 @@ VL_INLINE_OPT void VDevelopmentBoard::_sequent__TOP__1(VDevelopmentBoard__Syms* 
     }
     vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__cnt 
         = __Vdly__DevelopmentBoard__DOT__running_light_inst__DOT__cnt;
-    vlTOPp->led4 = (1U & (~ (IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on)));
-    vlTOPp->led3 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
-                             >> 1U)));
+    vlTOPp->led1 = (1U & (~ (IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on)));
     vlTOPp->led2 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
+                             >> 1U)));
+    vlTOPp->led3 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
                              >> 2U)));
-    vlTOPp->led1 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
+    vlTOPp->led4 = (1U & (~ ((IData)(vlTOPp->DevelopmentBoard__DOT__running_light_inst__DOT__led_on) 
                              >> 3U)));
 }
 
@@ -103,12 +103,12 @@ void VDevelopmentBoard::_eval(VDevelopmentBoard__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VDevelopmentBoard::_eval\n"); );
     VDevelopmentBoard* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    if ((((~ (IData)(vlTOPp->B2)) & (IData)(vlTOPp->__Vclklast__TOP__B2)) 
+    if ((((~ (IData)(vlTOPp->B3)) & (IData)(vlTOPp->__Vclklast__TOP__B3)) 
          | ((IData)(vlTOPp->clk) & (~ (IData)(vlTOPp->__Vclklast__TOP__clk))))) {
         vlTOPp->_sequent__TOP__1(vlSymsp);
     }
     // Final
-    vlTOPp->__Vclklast__TOP__B2 = vlTOPp->B2;
+    vlTOPp->__Vclklast__TOP__B3 = vlTOPp->B3;
     vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
 }
 

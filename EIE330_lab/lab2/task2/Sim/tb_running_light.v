@@ -1,4 +1,4 @@
-`timescale 1ns/1ps
+`timescale 1ns/1ns
 module tb_running_light;
     reg sys_clk;
     reg sys_rst_n;
