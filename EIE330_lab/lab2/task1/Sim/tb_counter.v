@@ -23,7 +23,7 @@ initial begin
     
     #20 sys_rst_n=1'b1;
     
-    #3000 sys_rst_n=1'b0;
+    #3500 sys_rst_n=1'b0;
     #20  sys_rst_n=1'b1;
     #3000 $finish;
 end
