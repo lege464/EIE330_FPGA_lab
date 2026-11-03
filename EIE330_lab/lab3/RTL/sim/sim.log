@@ -1,0 +1,1166 @@
+
+========== 2026-11-03 19:14:12.926016 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/EIE330_lab/lab3/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Tip: The obj_dir folder does not exist, no need to clean it up
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:71:14: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   71 | assign char_y=(pix_y-10'd208)>>3;
+      |              ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:72:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   72 | assign m_x=(pix_x-10'd144)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:73:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   73 | assign u_x=(pix_x-10'd240)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:74:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   74 | assign s_x=(pix_x-10'd336)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:75:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   75 | assign t_x=(pix_x-10'd432)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: Entering directory '/media/sf_ShareFolder/EIE330_lab/lab3/RTL/sim/obj_dir'
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+make: Warning: File 'VDevelopmentBoard__ver.d' has modification time 4.7 s in the future
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: warning:  Clock skew detected.  Your build may be incomplete.
+make: Leaving directory '/media/sf_ShareFolder/EIE330_lab/lab3/RTL/sim/obj_dir'
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[SimThread] Starting simulation loop...
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 52 | Events: 25 | Dropped: 37 | MaxEvents/Frame: 7 | MaxFrameTime: 24ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 50 | Events: 14 | Dropped: 24 | MaxEvents/Frame: 5 | MaxFrameTime: 19ms
+[EventLoop] FPS: 50 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 20ms
+[EventLoop] FPS: 16 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 5 events this frame (processed 1/6)
+[EventLoop] Dropped
+1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 51 | Events: 21 | Dropped: 42 | MaxEvents/Frame: 6 | MaxFrameTime: 21ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'RESET' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[SimThread] Reset triggered
+[EventLoop] FPS: 49 | Events: 14 | Dropped: 12 | MaxEvents/Frame: 5 | MaxFrameTime: 21ms
+[Input] Button 'RESET' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Slow frame: 42ms (target: 16ms)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 52 | Events: 10 | Dropped: 2 | MaxEvents/Frame: 2 | MaxFrameTime: 42ms
+[Input] Button 'RESET' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[SimThread] Reset triggered
+[Input] Button 'RESET' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[VGA] VSync #60 (frame 1s)
+[EventLoop] FPS: 51 | Events: 4 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 21ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 11 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 19ms
+[Input] Button 'RESET' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[SimThread] Reset triggered
+[EventLoop] FPS: 1 | Events: 1 | Dropped: 2 | MaxEvents/Frame: 3 | MaxFrameTime: 7ms
+[Input] Button 'RESET' released
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 46 | Events: 38 | Dropped: 59 | MaxEvents/Frame: 5 | MaxFrameTime: 19ms
+[Input] Button 'RESET' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[SimThread] Reset triggered
+[Input] Button 'RESET' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 51 | Events: 6 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 16ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 48 | Events: 18 | Dropped: 28 | MaxEvents/Frame: 5 | MaxFrameTime: 28ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[VGA] VSync #120 (frame 2s)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 52 | Events: 1 | Dropped: 2 | MaxEvents/Frame: 3 | MaxFrameTime: 23ms
+[EventLoop] FPS: 47 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 39 | Events: 11 | Dropped: 18 | MaxEvents/Frame: 5 | MaxFrameTime: 26ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped
+3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[VGA] VSync #180 (frame 3s)
+[EventLoop] FPS: 28 | Events: 16 | Dropped: 23 | MaxEvents/Frame: 4 | MaxFrameTime: 15ms
+[EventLoop] FPS: 6 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 17ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 20 | Events: 9 | Dropped: 5 | MaxEvents/Frame: 3 | MaxFrameTime: 17ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 5 events this frame (processed 1/6)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[VGA] VSync #240 (frame 4s)
+[EventLoop] FPS: 29 | Events: 6 | Dropped: 10 | MaxEvents/Frame: 6 | MaxFrameTime: 18ms
+[Input] Quit key pressed
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+
+========== EventLoop Final Stats ==========
+Total frames processed: 1
+Total events processed: 1
+Total events dropped:   4
+Max events in one frame: 5
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 23s
+Total iterations:    100530265
+Iterations/second:   4370881
+Final time stamp:    402121160
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
+
+========== 2026-11-03 19:15:54.759348 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/EIE330_lab/lab3/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Remove obj_dir ...
+✓ Sucessfully remove obj_dir 
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:71:14: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   71 | assign char_y=(pix_y-10'd208)>>3;
+      |              ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:72:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   72 | assign m_x=(pix_x-10'd144)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:73:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   73 | assign u_x=(pix_x-10'd240)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:74:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   74 | assign s_x=(pix_x-10'd336)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:75:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   75 | assign t_x=(pix_x-10'd432)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: Entering directory '/media/sf_ShareFolder/EIE330_lab/lab3/RTL/sim/obj_dir'
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+make: Warning: File 'VDevelopmentBoard__ver.d' has modification time 4.8 s in the future
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: warning:  Clock skew detected.  Your build may be incomplete.
+make: Leaving directory '/media/sf_ShareFolder/EIE330_lab/lab3/RTL/sim/obj_dir'
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[SimThread] Starting simulation loop...
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] FPS: 10 | Events: 3 | Dropped: 6 | MaxEvents/Frame: 7 | MaxFrameTime: 19ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed
+1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] FPS: 51 | Events: 44 | Dropped: 70 | MaxEvents/Frame: 5 | MaxFrameTime: 29ms
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 50 | Events: 1 | Dropped: 0 | MaxEvents/Frame: 1 | MaxFrameTime: 28ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped
+1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 53 | Events: 39 | Dropped: 57 | MaxEvents/Frame: 4 | MaxFrameTime: 18ms
+[VGA] VSync #60 (frame 1s)
+[Input] Button 'RESET' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[SimThread] Reset triggered
+[Input] Button 'RESET' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 50 | Events: 4 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 23ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 50 | Events: 14 | Dropped: 14 | MaxEvents/Frame: 4 | MaxFrameTime: 24ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3
+ events this frame (processed 1/4)
+[EventLoop] FPS: 22 | Events: 10 | Dropped: 8 | MaxEvents/Frame: 4 | MaxFrameTime: 20ms
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] FPS:
+53 | Events: 16 | Dropped: 32 | MaxEvents/Frame: 5 | MaxFrameTime: 21ms
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 45 | Events: 3 | Dropped: 10 | MaxEvents/Frame: 7 | MaxFrameTime: 27ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] FPS: 48 | Events: 6 | Dropped: 9 | MaxEvents/Frame: 4 | MaxFrameTime: 22ms
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] FPS: 48 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 30ms
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 50 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 25ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 49 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 29ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[VGA] VSync #120 (frame 2s)
+[VGA] VSync #180 (frame 3s)
+[EventLoop] FPS: 38 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 33ms
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[VGA] VSync #240 (frame 4s)
+[EventLoop] FPS: 3 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 32ms
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[VGA] VSync #300 (frame 5s)
+[EventLoop] FPS: 3 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 28ms
+[EventLoop] FPS: 1 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] Slow frame: 46ms (target: 16ms)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 46 | Events: 27 | Dropped: 50 | MaxEvents/Frame: 7 | MaxFrameTime: 46ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[VGA] VSync #[EventLoop] FPS: 5 | Events: 2 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 23ms
+360 (frame 6s)
+[Input] Quit key pressed
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+
+========== EventLoop Final Stats ==========
+Total frames processed: 1
+Total events processed: 1
+Total events dropped:   3
+Max events in one frame: 4
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 34s
+Total iterations:    150915827
+Iterations/second:   4438700
+Final time stamp:    603663348
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
+
+========== 2026-11-03 19:17:18.765330 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/EIE330_lab/lab3/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Remove obj_dir ...
+✓ Sucessfully remove obj_dir 
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:71:14: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   71 | assign char_y=(pix_y-10'd208)>>3;
+      |              ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:72:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   72 | assign m_x=(pix_x-10'd144)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:73:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   73 | assign u_x=(pix_x-10'd240)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:74:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   74 | assign s_x=(pix_x-10'd336)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+%Warning-WIDTH: /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_pic.v:75:11: Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's SHIFTR generates 10 bits.
+                                                                         : ... In instance DevelopmentBoard.vga_colorbar_inst.vga_pic_inst
+   75 | assign t_x=(pix_x-10'd432)>>3;
+      |           ^
+                /media/sf_ShareFolder/EIE330_lab/lab3/RTL/vga_colorbar.v:23:1: ... note: In file included from vga_colorbar.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: Entering directory '/media/sf_ShareFolder/EIE330_lab/lab3/RTL/sim/obj_dir'
+make: Warning: File 'VDevelopmentBoard__ver.d' has modification time 4.9 s in the future
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: warning:  Clock skew detected.  Your build may be incomplete.
+make: Leaving directory '/media/sf_ShareFolder/EIE330_lab/lab3/RTL/sim/obj_dir'
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[SimThread] Starting simulation loop...
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 52 | Events: 16 | Dropped: 22 | MaxEvents/Frame: 7 | MaxFrameTime: 29ms
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 5 events this frame (processed 1/6)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 42 | Events: 15 | Dropped: 22 | MaxEvents/Frame: 6 | MaxFrameTime: 25ms
+[Input] Button 'RESET' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[SimThread] Reset triggered
+[Input] Button 'RESET' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 5 events this frame (processed 1/6)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 17 | Events: 9 | Dropped: 20 | MaxEvents/Frame: 6 | MaxFrameTime: 22ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 51 | Events: 19 | Dropped: 31 | MaxEvents/Frame: 7 | MaxFrameTime: 21ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] FPS: 54 | Events: 34 | Dropped: 30 | MaxEvents/Frame: 5 | MaxFrameTime: 18ms
+[VGA] VSync #
+60 (frame 1s)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] FPS: 24 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 32ms
+[EventLoop] Slow frame: 47ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 47 | Events: 7 | Dropped: 13 | MaxEvents/Frame: 5 | MaxFrameTime: 47ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] FPS: 48 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 25ms
+[VGA] VSync #[EventLoop] FPS: 24 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+120 (frame 2s)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[VGA] VSync #180 (frame 3s)
+[EventLoop] FPS: 20 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 22ms
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 45 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 39ms
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 35ms (target: 16ms)
+[VGA] VSync #240 (frame 4s)
+[EventLoop] FPS: 38 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 37ms
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 38ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 45ms (target: 16ms)
+[EventLoop] Slow frame: 38ms (target: 16ms)
+[EventLoop] FPS: 42 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 45ms
+[EventLoop] Slow frame: 41ms (target: 16ms)
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 43ms (target: 16ms)
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 35ms (target: 16ms)
+[EventLoop] Slow frame: 38ms (target: 16ms)
+[EventLoop] FPS: 36 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 43ms
+[EventLoop] Slow frame: 35ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 43 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 35ms
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 38ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 48ms (target: 16ms)
+[EventLoop] FPS: 43 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 48ms
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 43ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] FPS: 36 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 43ms
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 36ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target:
+16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 42 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 39ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame:
+30ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] FPS:
+43 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 39ms
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 36ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 41 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 37ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 36ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 38 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 40ms
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 38ms (target: 16ms)
+[EventLoop] Slow frame: 85ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 44ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 41ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 41 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 85ms
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] FPS: 46 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 32ms
+[EventLoop] Slow frame: 41ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 36ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 44ms (target: 16ms)
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 71ms (target: 16ms)
+[EventLoop] FPS: 36 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 71ms
+[EventLoop] Slow frame: 47ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[VGA] VSync #300 (frame 5s)
+[EventLoop] FPS:
+7 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 47ms
+[EventLoop] Slow frame: 70ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] FPS: 37 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 70ms
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 41 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 40ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 46ms (target: 16ms)
+[EventLoop] FPS: 37 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 46ms
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 56ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 62ms (target: 16ms)
+[EventLoop] Slow frame: 48ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 36ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 41 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 62ms
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 42ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 35ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[VGA] VSync #
+360 (frame 6s)
+[EventLoop] FPS: 27 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 42ms
+[EventLoop] Slow frame: 49ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 52ms (target: 16ms)
+[EventLoop] Slow frame: 41ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 35 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 52ms
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 66ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 65ms (target: 16ms)
+[EventLoop] Slow frame: 36ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] FPS: 35 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 66ms
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 47 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 30ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] FPS: 47 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 31ms
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 43ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 46ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 41ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] FPS: 40 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 46ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[VGA] VSync #420 (frame 7s)
+[EventLoop] FPS:
+6 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 24ms
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 43ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 39 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 43ms
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame:
+23ms (target: 16ms)
+[VGA] VSync #480 (frame 8s)
+[EventLoop] FPS: 20 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 32ms
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[VGA] VSync #540 (frame 9s)
+[EventLoop] FPS: 5 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 30ms
+[EventLoop] Slow frame: 42ms (target: 16ms)
+[VGA] VSync #600 (frame 10s)
+[EventLoop] FPS: 2 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 42ms
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 42ms (target: 16ms)
+[EventLoop] Slow frame: 55ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[VGA] VSync #660 (frame 11s)
+[EventLoop] FPS: 43
+ | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 55ms
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[VGA] VSync #
+720 (frame 12s)
+[EventLoop] FPS: 10 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 28ms
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 38ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] FPS: 42 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 38ms
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[VGA] VSync #780 (frame 13s)
+[EventLoop] FPS: 7 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 29ms
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 35ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] FPS: 40 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 35ms
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] FPS: 45 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 32ms
+[EventLoop] Slow frame: 40ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 44 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 40ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 33ms (target: 16ms)
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 37ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] FPS: 42 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 39ms
+[EventLoop] Slow frame: 38ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 45ms (target: 16ms)
+[EventLoop] FPS: 44 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 45ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 45 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 31ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 30ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] FPS: 42 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 39ms
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 31ms (target: 16ms)
+[EventLoop] FPS: 43 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 34ms
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[VGA] VSync #840 (frame 14s)
+[EventLoop] FPS: 22 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 27ms
+[EventLoop] Slow frame: 46ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 5 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 46ms
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[VGA] VSync #[EventLoop] FPS: 5 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 28ms
+900 (frame 15s)
+[VGA] VSync #[EventLoop] FPS: 3 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 6ms
+960 (frame 16s)
+[VGA] VSync #[EventLoop] FPS: 1 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+1020 (frame 17s)
+[EventLoop] FPS: 3 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] Slow frame: 32ms (target: 16ms)
+[EventLoop] Slow frame: 48ms (target: 16ms)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] FPS: 47 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 48ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[VGA] VSync #1080 (frame 18s)
+[EventLoop] FPS: 48 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 27ms
+[EventLoop] Slow frame: 29ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 26ms (target: 16ms)
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 47 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 29ms
+[EventLoop] Slow frame: 43ms (target: 16ms)
+[EventLoop] FPS: 47 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 43ms
+[EventLoop] FPS: 50 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 21ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 19 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 22ms
+[EventLoop] Slow frame: 34ms (target: 16ms)
+[EventLoop] Dropped 5 events this frame (processed 1/6)
+[EventLoop] Slow frame: 25ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 49 | Events: 10 | Dropped: 19 | MaxEvents/Frame: 6 | MaxFrameTime: 34ms
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 48 | Events: 18 | Dropped: 36 | MaxEvents/Frame: 7 | MaxFrameTime: 19ms
+[VGA] VSync #1140 (frame 19s)
+[Input] Quit key pressed
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+
+========== EventLoop Final Stats ==========
+Total frames processed: 24
+Total events processed: 1
+Total events dropped:   1
+Max events in one frame: 2
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 139s
+Total iterations:    481953792
+Iterations/second:   3467293
+Final time stamp:    1927815208
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
