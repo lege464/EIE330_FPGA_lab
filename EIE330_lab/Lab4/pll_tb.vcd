@@ -1,0 +1,81 @@
+$date
+	Thu Nov  5 11:01:12 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module pll_tb $end
+$var wire 1 ! vga_clk $end
+$var reg 1 " sys_clk $end
+$var reg 1 # sys_rst_n $end
+$scope module pll_inst $end
+$var wire 1 " sys_clk $end
+$var wire 1 # sys_rst_n $end
+$var reg 1 ! vga_clk $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0#
+1"
+0!
+$end
+#10
+0"
+#20
+1#
+1"
+#30
+0"
+#40
+1!
+1"
+#50
+0"
+#60
+0!
+1"
+#70
+0"
+#80
+1!
+1"
+#90
+0"
+#100
+0!
+1"
+#110
+0"
+#120
+1!
+1"
+#130
+0"
+#140
+0!
+1"
+#150
+0"
+#160
+1!
+1"
+#170
+0"
+#180
+0!
+1"
+#190
+0"
+#200
+1!
+1"
+#210
+0"
+#220
+0!
+1"
